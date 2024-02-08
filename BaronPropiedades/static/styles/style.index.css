@@ -1,0 +1,506 @@
+/* INDEX PAGE CONTENT STYLES*/
+
+.sections-container {
+    margin: 0 auto;
+    width: 100%;
+}
+
+section {
+    /* border: 1px solid rgb(89, 255, 47); */
+    width: 99%;
+    padding: 2px;
+    min-height: 400px;
+    margin: 10px auto 10px auto;
+}
+
+
+/* Section 1 */
+.section-1 {
+    width: 100%;
+    height: 700px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top: 1px solid rgba(224, 224, 224, 0.591);
+    border-bottom: 1px solid rgba(224, 224, 224, 0.591);
+    box-shadow: inset 0px -5px 12px -8px rgba(0, 0, 0, 0.6);
+}
+
+.section-1-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    row-gap: 10px;
+}
+
+/* Changing background */
+
+.section-1::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    background-image: url("../img/faro-serena.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: 0.5;
+    z-index: -1;
+    animation: changeImage 12s linear infinite;
+}
+
+@keyframes changeImage {
+
+    0%,
+    25% {
+        background-image: url("../img/faro-serena.jpg");
+    }
+
+    25%,
+    50% {
+        background-image: url("../img/cruz-coquimbo.jpg");
+    }
+
+    50%,
+    75% {
+        background-image: url("../img/valle-serena.jpg");
+    }
+
+    75%,
+    100% {
+        background-image: url("../img/faro-serena.jpg");
+    }
+}
+
+.section-1-content>h2 {
+    color: white;
+    font-family: "Organetto-B";
+    width: 50%;
+    text-align: center;
+    text-shadow: 5px 3px 6px rgba(0, 0, 0, 0.463);
+    margin: 0 auto;
+}
+
+.section-1-content>p {
+    color: white;
+    font-family: "Organetto-B";
+    width: 60%;
+    text-align: center;
+    text-shadow: 5px 3px 6px rgba(0, 0, 0, 0.387);
+}
+
+/* Section 2 */
+.section-2 {
+    min-height: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+}
+
+.section-2-content {
+    /* border: 1px blue solid; */
+    padding: 5px;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    column-gap: 5%;
+    align-items: center;
+    justify-content: center;
+}
+
+.section-2-item {
+    /* border: 1px rgb(0, 0, 0) solid; */
+    border-radius: 20px;
+    padding: 15px 0px 15px 0px;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    align-items: center;
+    justify-content: start;
+    max-width: 25%;
+    transition: ease-in-out all 0.2s;
+}
+
+.section-2-item:hover,
+.section-2-item:focus {
+    background-color: white;
+    -webkit-box-shadow: 5px 5px 37px 0px rgba(0, 0, 0, 0.4);
+    box-shadow: 5px 5px 37px 0px rgba(0, 0, 0, 0.4);
+}
+
+.section-2-item>* {
+    margin: 0;
+    padding: 5px;
+}
+
+.section-2-icon {
+    background-image: linear-gradient(180deg, var(--rojo-baron-light) 0%, var(--rojo-baron-dark) 100%);
+    padding: 20px;
+    border-radius: 50%;
+    color: white;
+    font-size: 40px;
+}
+
+.section-2-item>h3 {
+    font-family: "Organetto-B";
+}
+
+.section-2-item>p {
+    width: 80%;
+    font-family: "MadeTommy-R";
+    letter-spacing: 1px;
+    text-align: center;
+    font-weight: bold;
+    font-size: large;
+}
+
+
+/* Section 3 */
+
+.section-3 {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 500px;
+    overflow: hidden;
+    box-shadow: 2px 2px 27px 0px rgba(0, 0, 0, 0.488);
+    padding: 0;
+}
+
+.section-3-content {
+    height: 100%;
+    width: 99%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Sliding background */
+
+.scroller {
+    max-width: 90%;
+    position: absolute;
+    z-index: -1;
+    opacity: 0.65;
+}
+
+.scroller__inner {
+    padding: 0px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.scroller[data-animated="true"] {
+    overflow: hidden;
+    -webkit-mask: linear-gradient(90deg,
+            transparent,
+            white 20%,
+            white 80%,
+            transparent);
+    mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);
+}
+
+.scroller[data-animated="true"] .scroller__inner {
+    width: max-content;
+    flex-wrap: nowrap;
+    animation: scroll var(--_animation-duration, 40s) var(--_animation-direction, forwards) linear infinite;
+}
+
+.scroller[data-direction="right"] {
+    --_animation-direction: reverse;
+}
+
+.scroller[data-direction="left"] {
+    --_animation-direction: forwards;
+}
+
+.scroller[data-speed="fast"] {
+    --_animation-duration: 20s;
+}
+
+.scroller[data-speed="medium"] {
+    --_animation-duration: 40s;
+}
+
+.scroller[data-speed="slow"] {
+    --_animation-duration: 60s;
+}
+
+@keyframes scroll {
+    to {
+        transform: translate(calc(-50% - 0.5rem));
+    }
+}
+
+.section-3-content > .catalogue {
+    border: 1px solid whitesmoke;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    align-items: center;
+    justify-content: start;
+    height: auto;
+    min-width: 20%;
+    background-color: rgb(255, 255, 255);
+    background-image: linear-gradient(270deg, rgba(230, 230, 230, 0.32) 0%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 95%, rgba(230, 230, 230, 0.32) 100%);
+    border-radius: 15px;
+    -webkit-box-shadow: 5px 5px 37px 0px rgba(0, 0, 0, 0.488);
+    box-shadow: 5px 5px 37px 0px rgba(0, 0, 0, 0.488);
+}
+
+.catalogue > * {
+    margin: 5px 0px;
+}
+
+.catalogue > h2 {
+    font-family: "Organetto-B";
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.12);
+}
+
+.catalogue > p {
+    font-family: "MadeTommy-R";
+}
+
+/* Section 4 */
+
+.section-4{
+    padding: 20px 0px 20px 0px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.section-4-content{
+    height: auto;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    justify-content: center;
+    align-items: center;
+    box-shadow: -10px -10px 30px 0 #fff, 10px 10px 30px 0 #1d0dca17;
+    border-radius: 10px;
+}
+
+.section-4-content > h3{
+    font-family: "Organetto-B";
+    font-size: 30px;
+    text-align: center;
+}
+
+
+.section-4-paragraphs{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    
+}
+
+.section-4-paragraphs > p{
+    max-width: 75%;
+    text-align: center;
+    font-family: "MadeTommy-R";
+    line-height:25px ;
+}
+
+
+
+/* Section 5 */
+
+.section-5 {
+    /* border: 1px solid rgb(25, 230, 14); */
+    margin: 20px 0px 0px 0px;
+    min-height: fit-content;
+    display: flex;
+    align-items: end;
+    justify-content: center;
+}
+
+.section-5-content{
+    /* border: 1px solid rgb(0, 166, 255); */
+    border-radius: 10px 10px 0px 0px;
+    background-color: white;
+    box-shadow: 5px 5px 37px 0px rgba(0, 0, 0, 0.488);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: start;
+    width: 70%;
+    min-height: 150px;
+    padding: 10px 30px;
+    margin-bottom: -0.5%;
+}
+
+.section-5-content > h2{
+    font-family: "Organetto-B";
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.section-5-content > h2::after{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    width: 55%;
+    margin: 0 auto;
+    border-radius: 5px;
+    content: "";
+    z-index: 1;
+    background: linear-gradient(90deg, rgba(240,218,25,1) 0%, rgba(255,81,47,1) 100%);
+}
+
+.contact-items-list{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    column-gap: 5%;
+}
+
+.contact-item > i{
+    padding: 5px;
+    font-size: 35px;
+}
+
+.contact-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    transition: ease-in 0.3s;
+}
+
+
+/* RESPONSIVENESS */
+
+/* -- RESPONSIVENESS -- */
+
+@media (min-width:340px) {
+    .section-1 {
+        max-height: 400px;
+    }
+    .section-1-content>h2 {
+        font-size: 28px;
+    }
+    .section-1-content>p {
+        font-size: 14px;
+    }
+    .section-2-item>h3 {
+        font-size: 18px;
+    }
+    .catalogue > h2 {
+        font-size: 28px;
+    }
+    .catalogue > p {
+        font-size: 15px;
+    }
+}
+
+@media (min-width:600px) {
+    .section-1 {
+        max-height: none;
+    }
+    .section-1-content>h2 {
+        font-size: 35px;
+    }
+    .section-1-content>p {
+        font-size: 20px;
+    }
+    .section-2-item>h3 {
+        font-size: 22px;
+    }
+    .catalogue > h2 {
+        font-size: 35px;
+    }
+    .catalogue > p {
+        font-size: 20px;
+    }
+    .section-4-paragraphs{
+        flex-direction: row;
+        row-gap: 15px;
+    }
+    .section-4-paragraphs > p{
+        max-width: 35%;
+    }
+}
+
+@media (max-width:768px) {
+    .section-1-content>h2 {
+        width: 80%;
+    }
+    .section-2-content {
+        flex-direction: column;
+        row-gap: 20px;
+    }
+    .section-2-item {
+        width: 90%;
+        max-width: none;
+    }
+    .section-3, .section-3-content{
+        max-height: 400px;
+    }
+    .scroller {
+        max-height: 400px;
+    }
+    .section-5-content{
+        width: 80%;
+    }
+}
+
+@media (min-width:768px) {
+    .section-1-content>h2 {
+        font-size: 45px;
+    }
+    .section-1-content>p {
+        font-size: 22px;
+    }
+    .section-2{
+        margin: 30px 0px 30px 0px;
+    }
+    .section-2-item>h3 {
+        font-size: 32px;
+    }
+    .catalogue > h2 {
+        font-size: 40px;
+    }
+    .catalogue > p {
+        font-size: 20px;
+    }
+}
+
+@media (min-width:1080px) {
+    .section-1-content>h2 {
+        font-size: 55px;
+    }
+    .section-1-content>p {
+        font-size: 24px;
+    }
+    .section-2-item>h3 {
+        font-size: 42px;
+    }
+    .catalogue > h2 {
+        font-size: 45px;
+    }
+    .catalogue > p {
+        font-size: 25px;
+    }
+    .contact-items-list{
+        flex-direction: row;
+        align-items: center;
+    }
+}

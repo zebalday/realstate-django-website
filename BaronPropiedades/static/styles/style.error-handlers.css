@@ -1,0 +1,104 @@
+/* ERROR STYLES */
+.page-container-error{
+    margin: 3rem auto;
+    width: 80%;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    color: white;
+    border-width: 3px;
+    border-style: solid;
+    border-image: linear-gradient(to bottom, red, rgba(0, 0, 0, 0)) 1 100%;
+}
+
+.page-container-error >
+    .error-number,
+    .error-description{
+    font-family: "Organetto-B";
+    background: #FF1922;
+    background: linear-gradient(to right, #FF1922 35%, #FF5158 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0.5rem;
+    display: flex;
+    justify-content: center;
+    
+}
+
+.error-number{
+    font-size: 20rem;
+    letter-spacing: 1rem;
+}
+
+.error-description{
+    font-size: 5rem;
+    text-align: center;
+}
+
+/* Responsiveness */
+
+@media (max-width:339px){
+    .error-number{
+        font-size: 4rem;
+    }
+    
+    .error-description{
+        font-size: 2rem;
+    }
+}
+
+@media (min-width:340px){
+    .error-number{
+        font-size: 4rem;
+    }
+    
+    .error-description{
+        font-size: 2rem;
+    }
+}
+
+@media (min-width:523px){
+    .error-number{
+        font-size: 6rem;
+    }
+    
+    .error-description{
+        font-size: 3rem;
+    }
+}
+
+@media (min-width:723px){
+    .error-number{
+        font-size: 8rem;
+    }
+    
+    .error-description{
+        font-size: 3rem;
+    }
+}
+
+@media (min-width:1080px){
+    .error-number{
+        font-size: 10rem;
+    }
+    
+    .error-description{
+        font-size: 4rem;
+    }
+}
+
+@media (min-width:1350px){
+    .error-number{
+        font-size: 12rem;
+    }
+    
+    .error-description{
+        font-size: 5rem;
+    }
+}

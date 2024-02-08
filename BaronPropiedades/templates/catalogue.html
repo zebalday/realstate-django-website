@@ -1,0 +1,94 @@
+{% extends "layout.html" %}
+{% load static %}
+
+{% block page_title %}Catálogo de propiedades{% endblock page_title %}
+
+{% block page_styles %}
+    <link rel="stylesheet" type="text/css" href={% static "styles/style.catalogue.css" %}>
+    <link rel="stylesheet" type="text/css" href={% static "styles/style.button.css" %}>
+    <link rel="stylesheet" type="text/css" href={% static "styles/style.paginator.css" %}>
+{% endblock page_styles %}
+
+{% block page_content%}
+
+    {% comment %} SUCCESS REGISTER MESSAGE {% endcomment %}
+    {% if messages %}
+        {% for message in messages %}
+            <div class="django-msg {% if message.tags == 'success' %}success-msg{% elif message.tags == 'error' %}error-msg{% endif %}">
+                {{message}}
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    <div class="catalogue-container">
+
+        {% comment %} PROPERTIES DISPLAY {% endcomment %}
+        {% for property in properties_per_page %}
+            <div class="property-container">
+                <div class="property-item">
+                    <div class="property-thumbnail">
+                        {% if property.is_available == False %}
+                            <span class="property-unavailable">{% if property.service_type.name == "Venta" %}Vendida{% else %}Arrendada{% endif %}</span>
+                        {% endif %}
+                        <img src="../media/{{property.thumbnail_path.image}}" alt="Miniatura propiedad"
+                        {% if property.is_available == False %}
+                            class="image-thumbnail img-unavailable"
+                        {% else %}
+                            class="image-thumbnail"
+                        {% endif %}>
+                    </div>
+                    <div class="property-info-container">
+                        <div class="property-title">
+                            <h3>{{ property.title }}</h3>
+                        </div>
+                        <div class="property-info">
+                            <div class="property-info-details">
+                                <p><b>Servicio:</b> {{ property.service_type }}</p>
+                                {% if property.rooms > 0 %}
+                                <p><b>Dormitorios:</b> {{ property.rooms }}</p>
+                                {% endif %}
+                                {% if property.baths > 0 %}
+                                <p><b>Baños:</b> {{ property.baths }}</p>
+                                {% endif %}
+                                <p><b>Comuna:</b> {{ property.comuna }}</p>
+                                <p><b>Dirección:</b> {{ property.address }}</p>
+                            </div>
+                            <div class="property-info-characteristics">
+                                <p><b>Características:</b></p>
+                                <ul>
+                                    {% if property.has_water_disposal %}<li><i class="fa-solid fa-circle-check"></i>  Disponibilidad de agua</li>{% endif %}
+                                    {% if property.has_energy_disposal %}<li><i class="fa-solid fa-circle-check"></i>  Disponibilidad de luz</li>{% endif %}
+                                    {% if property.has_furnitures %}<li><i class="fa-solid fa-circle-check"></i>  Amoblado</li>{% endif %}
+                                    {% if property.has_internet %}<li><i class="fa-solid fa-circle-check"></i>  Internet</li>{% endif %}
+                                    {% if property.has_tv %}<li><i class="fa-solid fa-circle-check"></i>  TV</li>{% endif %}
+                                    {% if property.has_laundry %}<li><i class="fa-solid fa-circle-check"></i>  Lavadora</li>{% endif %}
+                                    {% if property.has_parking %}<li><i class="fa-solid fa-circle-check"></i>  Estacionamiento</li>{% endif %}
+                                    {% if property.has_storage %}<li><i class="fa-solid fa-circle-check"></i>  Bodega</li>{% endif %}
+                                    {% if property.has_balcony %}<li><i class="fa-solid fa-circle-check"></i>  Balcón</li>{% endif %}
+                                    {% if property.has_elevator %}<li><i class="fa-solid fa-circle-check"></i>  Elevador</li>{% endif %}
+                                    {% if property.has_pool %}<li><i class="fa-solid fa-circle-check"></i>  Piscina</li>{% endif %}
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="property-contact-btn-container">
+                            <button class="property-contact-btn contact-button-form" id="property-contact-btn" onClick="location.href='/propiedad/{{property.id}}'">
+                                VER DETALLES
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+    {% comment %} PAGINATOR {% endcomment %}
+    <div class="catalogue-paginator glow-text">
+        {% include "properties-paginator.html" %}
+    </div>
+
+{% endblock page_content%}
+
+{% block page_scripts %}
+    <script src={% static "js/contact-form-property.js" %}></script>
+
+{% endblock page_scripts %}

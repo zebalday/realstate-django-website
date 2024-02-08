@@ -1,0 +1,6 @@
+staticfiles/
+media/property1
+media/property2
+media/property3
+media/property4
+db.sqlite3

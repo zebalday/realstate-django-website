@@ -1,0 +1,19 @@
+{% if properties_per_page.has_previous %}
+    <span class="previous-pages glow-text">
+        <a href="?page=1"> <i class="fa-solid fa-angles-left"></i> </a>
+        <a href="?page={{properties_per_page.previous_page_number}}"> <i class="fa-solid fa-chevron-left"></i> </a>
+    </span>
+{% endif %}
+
+
+<span class="actual-property">
+    <b>Página {{properties_per_page.number}} de {{properties_per_page.paginator.num_pages}}</b>
+</span>
+
+
+{% if properties_per_page.has_next %}
+    <span class="next-pages glow-text">
+        <a href="?page={{properties_per_page.next_page_number}}"> <i class="fa-solid fa-chevron-right"></i> </a>
+        <a href="?page={{properties_per_page.paginator.num_pages}}"> <i class="fa-solid fa-angles-right"></i> </a>
+    </span>
+{% endif %}

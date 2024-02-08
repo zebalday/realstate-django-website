@@ -1,0 +1,292 @@
+:root {
+    --swiper-navigation-size: 44px;
+    --swiper-theme-color: #007aff;
+    --page-title-display: block;
+}
+
+:root {
+    --fb-color: #3b5998;
+    --g-plus: #dd4b39;
+    --insta: #bc2a8d;
+    --whatsapp: #30b945;
+    --blue: #007bff;
+    --indigo: #6610f2;
+    --purple: #6f42c1;
+    --pink: #e83e8c;
+    --red: #dc3545;
+    --rojo-baron-light: #fd555b;
+    --rojo-baron-lighter: #fb8e92;
+    --rojo-baron-dark: #cc1016;
+    --rojo-baron-shadow: #592d2f;
+    --azul-baron-light: #789cff;
+    --azul-baron-intense: #2e66ff;
+    --azul-baron-dark: #103aae;
+    --azul-baron-shadow: #071b54;
+    --orange: #fd7e14;
+    --yellow: #ffc107;
+    --green: #28a745;
+    --teal: #20c997;
+    --cyan: #17a2b8;
+    --white: #fff;
+    --gray: #6c757d;
+    --gray-dark: #343a40;
+    --primary: #007bff;
+    --secondary: #6c757d;
+    --success: #28a745;
+    --info: #17a2b8;
+    --warning: #ffc107;
+    --danger: #dc3545;
+    --light: #f8f9fa;
+    --dark: #343a40;
+    --breakpoint-xs: 0;
+    --breakpoint-sm: 576px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 992px;
+    --breakpoint-xl: 1200px;
+    --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+html {
+    margin: 0 auto;
+    display: block;
+    /* overflow-y: visible;
+    overflow-y: scroll; */
+    font-family: sans-serif;
+    line-height: 1.15;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    -ms-overflow-style: scrollbar;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    /* border: 1px solid rgb(0, 0, 0); */
+    background-color: rgba(180, 204, 255, 0.157);
+    display: inline-block;
+    width: 100%;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+.glow-text {
+    background: #FF512F;
+    background: linear-gradient(to right, #FF512F 0%, #edd605 77%, #FF512F 100%);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+/* PAGE HEADER */
+
+header {
+    border: 1px solid var(--rojo-baron-dark);
+    background: linear-gradient(180deg, var(--rojo-baron-light) 0%, var(--rojo-baron-dark) 100%);
+    box-shadow: 0px 10px 11px -6px var(--rojo-baron-shadow);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Banner - Logo and company name*/
+
+.banner-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(180deg, rgba(253, 85, 91, 1) 0%, rgba(254, 30, 38, 1) 100%);
+    z-index: 100;
+}
+
+.baron-propiedades-banner {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    transition: 1s;
+}
+
+.baron-propiedades-banner>img {
+    margin: 0;
+    max-width: 12%;
+}
+
+.baron-propiedades-banner>h1 {
+    margin: 0;
+    letter-spacing: 0.7px;
+    color: white;
+    font-weight: bold;
+    max-width: 80%;
+    font-family: "Organetto-B";
+    text-align: center;
+}
+
+
+/* Social media contacts */
+
+.social-media-list {
+    padding: 5px;
+    width: fit-content;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    column-gap: 15px;
+    align-items: center;
+    justify-content: center;
+}
+
+.social-media-item {
+    padding: 1px 8px 1px 3px;
+    border-radius: 5px;
+}
+
+.social-media-link {
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    font-family: "Organetto-B";
+    text-decoration: none;
+}
+
+.social-media-link:hover{
+    color: rgb(255, 247, 0);
+}
+
+.social-media-link>i {
+    padding: 5px;
+}
+
+
+/* FOOTER */
+
+footer {
+    border: 1px solid rgb(0, 0, 0);
+    min-height: 100px;
+    background-color: var(--dark);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    z-index: 100;
+    width: 100%;
+}
+
+.footer-logo{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    height: fit-content;
+    padding: 10px;
+}
+
+.footer-logo > img{
+    max-width: 8%;
+}
+
+.footer-logo > h4{
+    margin: 0;
+    font-family: "Organetto-B";
+}
+
+footer > p{
+    color: white;
+    font-family: "MadeTommy-R";
+    font-style: italic;
+    margin: 0px 0px 10px 0px;
+    padding: 5px;
+}
+
+
+.footer-legal{
+    width: 100%;
+    background: linear-gradient(90deg, rgba(52,58,64,1) 15%, rgba(0,0,0,1) 30%, rgba(25,27,30,1) 70%, rgba(52,58,64,1) 85%);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: auto;
+}
+
+.footer-legal > *{
+    padding: 5px;
+    text-decoration: none;
+    color: whitesmoke;
+}
+
+.footer-legal  a:hover{
+    text-decoration: underline;
+    color: wheat;
+}
+
+.footer-legal  a:visited{
+    color: wheat;
+}
+
+
+/* -- RESPONSIVENESS -- */
+
+@media (min-width:350px) {
+    .baron-propiedades-banner>h1 {
+        font-size: 25px;
+    }
+    .footer-logo > h4{
+        font-size: 20px;
+    }
+}
+
+@media (min-width:600px) {
+    .baron-propiedades-banner>h1 {
+        font-size: 40px;
+    }
+}
+
+@media (max-width:768px) {
+    .social-media-container {
+        display: none;
+    }
+    .footer-legal > *{
+        font-size: 10px;
+    }
+}
+
+@media (min-width:768px) {
+    .baron-propiedades-banner>h1 {
+        font-size: 50px;
+    }
+    .footer-logo > h4{
+        font-size: 30px;
+    }
+}
+
+@media (min-width:1080px) {
+    .baron-propiedades-banner>h1 {
+        font-size: 65px;
+    }
+}
+
+
+/* FONTS */
+@font-face {
+    font-family: "Organetto-B";
+    src: url("../fonts/Organetto-Bold.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "MadeTommy-B";
+    src: url("../fonts/MadeTommy-Bold.otf") format("opentype");
+}
+
+@font-face {
+    font-family: "MadeTommy-R";
+    src: url("../fonts/MadeTommy-Regular.otf") format("opentype");
+}
+
+@font-face {
+    font-family: "MadeTommy-L";
+    src: url("../fonts/MadeTommy-Light.otf") format("opentype");
+}
+

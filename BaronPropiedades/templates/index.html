@@ -1,0 +1,130 @@
+{% extends "layout.html" %}
+{% load static %}
+
+{% block page_title %}Inicio{% endblock page_title %}
+
+{% block page_styles %}
+    <link rel="stylesheet" type="text/css" href={% static "styles/style.index.css" %}>
+    <link rel="stylesheet" type="text/css" href={% static "styles/style.contact-form.css" %}>
+{% endblock page_styles %}
+
+
+{% block page_content %}
+        
+        {% if messages %}
+            {% for message in messages %}
+                <div class="django-msg {% if message.tags == 'success' %}success-msg{% elif message.tags == 'error' %}error-msg{% endif %}">
+                    {{message}}
+                </div>
+            {% endfor %}
+        {% endif %}
+
+        <div class="sections-container">
+            <section class="section-1">
+                <div class="section-1-content">
+                    <h2>
+                        Venda y arriende su propiedad rápidamente
+                    </h2>
+                    <p>
+                        Más de 15 años de experiencia en el rubro inmobiliario. <br> Contáctenos y publique su propiedad!
+                    </p>
+                    <button class="contact-button-form" id="contact-button-form" role="button" onclick="showCustomAlert()">
+                        ¡Publica tu casa!
+                    </button>
+                </div>
+                <div class="form-overlay" id="form-overlay"></div>
+                <div class="form-alert" id="form-alert">
+                    <span class="form-close-button" onclick="hideCustomAlert()">&times;</span>
+                    <div class="form-banner">
+                        <img class="form-banner-img" src="{% static "img/BannerBP-form.png" %}" alt="Logo Baron Propiedades Header Formulario">
+                    </div>
+                    <div class="form-container" id="form-container">
+                        <form id="contact-form" action="{% url "index" %}" method="POST">
+                            {% csrf_token %}
+                            {{ client_form.as_p|safe }}
+                            <div class="form-checkbox-container">
+                                <input type="checkbox" name="form-privacy-terms" id="form-privacy-terms" value="true" required>
+                                <label for="form-privacy-terms">Acepto los <a href={% url "privacy" %} class="privacy-terms-link">términos de privacidad</a></label>
+                            </div>
+                            <input class="form-submit-btn" type="submit" value="Quiero que me contacten">
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section-2">
+                <div class="section-2-content">
+                    <div class="section-2-item">
+                        <i class="fa-solid fa-gavel section-2-icon"></i>
+                        <h3>Rapidez</h3>
+                        <p>
+                            Realizamos todos los trámites legales, bancarios y notariales, rápida y expeditamente.
+                        </p>
+                    </div>
+                    <div class="section-2-item">
+                        <i class="fa-solid fa-comments-dollar section-2-icon"></i>
+                        <h3>Experiencia</h3>
+                        <p>
+                            Acumulamos más de 15 años de experiencia en el rubro bancario e inmobiliario.
+                        </p>
+                    </div>
+                    <div class="section-2-item">
+                        <i class="fa-solid fa-building-columns section-2-icon"></i>
+                        <h3>Asesoría</h3>
+                        <p>
+                            Asesoramos y facilitamos la toma de decisiones al momento de comprar y vender un inmueble.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section-3">
+                <div class="section-3-content">
+                    <div class="catalogue">
+                        <h2>¡VENDIDO!</h2>
+                        <p>Asómbrate con estas propiedades!</p>
+                        <button class="catalogue-button-redirect" id="catalogue-button-redirect" onclick="location.href='/catalogo-propiedades'">
+                            Ver Catálogo
+                        </button>
+                    </div>
+                    <div class="scroller" data-direction="right" data-speed="medium">
+                        <div class="scroller__inner">
+                            <img src="{% static "img/BannerBP.png" %}" alt="Baron Propiedades Collage Sliding Banner" />
+                            <img src="{% static "img/BannerBP-2.png" %}" alt="Baron Propiedades Collage Sliding Banner" />
+                            <img src="{% static "img/BannerBP-3.png" %}" alt="Baron Propiedades Collage Sliding Banner" />
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section-4">
+                <div class="section-4-content">
+                    <h3>Haz tu proceso <span class="glow-text">inmobiliario</span> una experiencia <span class="glow-text">excepcional</span></h3>
+                    <div class="section-4-paragraphs">
+                        <p>Te ofrecemos alternativas de inversión, guía experta en compra y venta, así como un servicio de arriendo y administración mensual impecable. </p>
+                        <p>Barón Propiedades convierte la adquisición y arriendo de bienes raíces en una experiencia sin igual. Tu hogar ideal te espera, contáctanos hoy.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section-5">
+                <div class="section-5-content">
+                    <h2>Contáctanos aquí</h2>
+                    <div class="contact-items-list">
+                        <a target="_blank" href="https://web.facebook.com/Baronpropiedades.cl/" class="contact-item item-facebook" title="Facebook Barón Propiedades"><i class="fa fa-facebook" aria-hidden="true"></i>Baron Propiedades</a>
+                        <a target="_blank" href="mailto:baronpropiedades@gmail.com" class="contact-item item-google" title="Gmail Barón Propiedades"><i class="fa fa-google" aria-hidden="true"></i>baronpropiedades@gmail.com</a>
+                        <a target="_blank" href="https://www.instagram.com/baronpropiedades" class="contact-item item-instagram" title="Instagram Barón Propiedades"><i class="fa fa-instagram" aria-hidden="true"></i>@baronpropiedades</a>
+                        <a target="_blank" href="https://wa.me/+56977864052" class="contact-item item-whatsapp" title="Whatsapp Barón Propiedades"><i class="fa fa-whatsapp" aria-hidden="true"></i>+56977864052</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+{% endblock page_content %}
+
+{% block page_scripts %}
+    <script type="text/javascript" src={% static "js/sliding-banner.js" %}></script>
+    <script type="text/javascript" src={% static "js/scroll-functions.js" %}></script>
+    <script type="text/javascript" src={% static "js/sticky-banner.js" %}></script>
+    <script type="text/javascript" src={% static "js/contact-form.js" %}></script>
+{% endblock page_scripts %}
+    

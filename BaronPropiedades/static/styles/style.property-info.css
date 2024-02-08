@@ -1,0 +1,128 @@
+.property-info-container {
+    /* border: 1px solid black; */
+    width: 95%;
+    margin: 2rem auto;
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    row-gap: 0.5rem;
+    min-height: 400px;
+    box-shadow: -10px -10px 30px 0 #fff, 10px 10px 30px 0 #1d0dca17;
+    border-radius: 10px;
+    background-color: white;
+}
+
+.property-info-container>div {
+    /* border: 1px solid blue; */
+    height: fit-content;
+    width: 95%;
+}
+
+.property-title{
+    font-family: "Organetto-B";
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.property-title>h1{
+    margin: 0;
+    padding: 0.5rem;
+}
+
+.property-description{
+    font-family: "MadeTommy-R";
+    margin: 1rem auto;
+}
+
+.property-description>p{
+    padding-inline-start: 0.5rem;
+}
+
+.property-info {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: space-around;
+    row-gap: 0.5rem;
+}
+
+.property-info>div {
+    /* border: 1px solid orange; */
+    width: 100%;
+    font-family: "MadeTommy-R";
+}
+
+/* .property-info-details{
+    
+} */
+
+.property-info-details > p{
+    padding-inline-start: 2rem;
+}
+
+.property-info-characteristics > ul{
+    list-style: none;
+    line-height: 2rem;
+    padding-inline-start: 2rem;
+}
+
+.property-info-details > h2,
+.property-info-characteristics > h2 {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.property-contact-btn-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* Responsiveness */
+@media (min-width:340px) {
+    .property-title > h3{
+        font-size: 20px;
+    }
+    .property-contact-btn{
+        font-size: 26px !important;
+    }
+}
+
+@media (min-width:600px) {
+    .property-title > h1{
+        font-size: 25px;
+    }
+    .property-info {
+        flex-direction: row;
+        align-items: stretch;
+        justify-content: space-around;
+    }
+    .property-info>div {
+        width: 45%;
+    }
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:1080px) {
+    .property-title > h1{
+        font-size: 35px;
+    }
+}
+
+@media (min-width:1350px) {
+
+}
+

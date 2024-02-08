@@ -1,0 +1,122 @@
+{% extends "layout.html" %}
+{% load static %}
+
+{% block page_title %} {{property.title}} {% endblock page_title %}
+
+{% block page_styles %}
+    <link rel="stylesheet" type="text/css" href={% static "styles/style.property-info.css" %}>
+    <link rel="stylesheet" type="text/css" href={% static "styles/style.contact-form.css" %}>
+    <link rel="stylesheet" type="text/css" href={% static "styles/style.image-carousel.css" %}>
+{% endblock page_styles %}
+
+{% block page_content %}
+    
+    {% comment %} SUCCESS REGISTER MESSAGE {% endcomment %}
+    {% if messages %}
+        {% for message in messages %}
+            <div class="django-msg {% if message.tags == 'success' %}success-msg{% elif message.tags == 'error' %}error-msg{% endif %}">
+                {{message}}
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    <div class="property-info-container">
+        
+        {% comment %} PROPERTY TITLE {% endcomment %}
+        <div class="property-title">
+            <h1>{{property.title}} {% if property.is_available == False %}{% if property.service_type.name == "Venta" %}(Vendida){% else %}(Arrendada){% endif %}{% endif %}</h1>
+        </div>
+
+        {% comment %} IMAGE CAROUSEL {% endcomment %}
+        <div class="gallery-container">
+            <div class="ism-slider" data-transition_type="fade" id="image-slider">
+                <ol>
+                    {% for property_image in images_path %}
+                        <li>
+                            <img src="/media/{{property_image.image}}">
+                        </li>
+                    {% endfor %}
+                </ol>
+            </div>
+        </div>
+
+        {% comment %} PROPERTY INFORMATION {% endcomment %}
+        {% if property.description %}
+            <div class="property-description">
+                {{ property.description|safe }}
+            </div>
+        {% endif %}
+        
+        <div class="property-info">
+            <div class="property-info-details">
+                <h2><b>Detalles</b></h2>
+                <p><b>Tipo:</b> {{ property.property_type }}</p>
+                <p><b>Servicio:</b> {{ property.service_type }}</p>
+                <p><b>Comuna:</b> {{ property.comuna }}</p>
+                <p><b>Dirección:</b> {{ property.address }}</p>
+                <p><b>Precio:</b> {{ property.price }} {% if property.is_UF %} (UF) {% else %} (CLP) mensuales {% endif %}</p>
+                <p><b>Metros cuadrados:</b> {{ property.squared_meters }}</p>
+                {% if property.rooms > 0 %}
+                <p><b>Dormitorios:</b> {{ property.rooms }}</p>
+                {% endif %}
+                {% if property.baths > 0 %}
+                <p><b>Baños:</b> {{ property.baths }}</p>
+                {% endif %}
+            </div>
+            <div class="property-info-characteristics">
+                <h2><b>Características</b></h2>
+                <ul>
+                    {% if property.has_water_disposal %}<li><i class="fa-solid fa-circle-check"></i>  Disponibilidad de agua</li>{% endif %}
+                    {% if property.has_energy_disposal %}<li><i class="fa-solid fa-circle-check"></i>  Disponibilidad de luz</li>{% endif %}
+                    {% if property.has_furnitures %}<li><i class="fa-solid fa-circle-check"></i>  Amoblado</li>{% endif %}
+                    {% if property.has_internet %}<li><i class="fa-solid fa-circle-check"></i>  Internet</li>{% endif %}
+                    {% if property.has_tv %}<li><i class="fa-solid fa-circle-check"></i>  TV</li>{% endif %}
+                    {% if property.has_laundry %}<li><i class="fa-solid fa-circle-check"></i>  Lavadora</li>{% endif %}
+                    {% if property.has_parking %}<li><i class="fa-solid fa-circle-check"></i>  Estacionamiento</li>{% endif %}
+                    {% if property.has_storage %}<li><i class="fa-solid fa-circle-check"></i>  Bodega</li>{% endif %}
+                    {% if property.has_balcony %}<li><i class="fa-solid fa-circle-check"></i>  Balcón</li>{% endif %}
+                    {% if property.has_elevator %}<li><i class="fa-solid fa-circle-check"></i>  Elevador</li>{% endif %}
+                    {% if property.has_pool %}<li><i class="fa-solid fa-circle-check"></i>  Piscina</li>{% endif %}
+                </ul>
+            </div>
+        </div>
+        <div class="property-contact-btn-container">
+            <button class="property-contact-btn contact-button-form" id="property-contact-btn" onClick="showCustomAlert('{{property.title}}')">
+                ME INTERESA
+            </button>
+        </div>
+    </div>
+
+    <div class="form-overlay" id="form-overlay">
+        {% comment %} JUST THE OVERLAY {% endcomment %}
+    </div>
+    
+    {% comment %} INTERESTED PROPERTY FORM {% endcomment %}
+    <div class="form-alert" id="form-alert">
+        <span class="form-close-button" onclick="hideCustomAlert()">&times;</span>
+        <div class="form-banner">
+            <img class="form-banner-img" src="{% static "img/BannerBP-form.png" %}">
+        </div>
+        <div class="form-subtitle">
+            <p id="form-property-title">{% comment %} Property title given by javascrip function {% endcomment %}</p>
+        </div>
+        <div class="form-container" id="form-container">
+            <form id="contact-form" action="{% url "property" id=property.id %}" method="POST">
+                {% csrf_token %}
+                {{ client_form.as_p|safe }}
+                <div class="form-checkbox-container">
+                    <input type="checkbox" name="form-privacy-terms" id="form-privacy-terms" value="true" required>
+                    <label for="form-privacy-terms">Acepto los <a href={% url "privacy" %} class="privacy-terms-link">términos de privacidad</a></label>
+                </div>
+                <input class="form-submit-btn" type="submit" value="Quiero que me contacten">
+            </form>
+        </div>
+    </div>
+
+{% endblock page_content %}
+
+{% block page_scripts %}
+    <script src={% static "js/image-carousel.js" %}></script>
+    <script src={% static "js/contact-form-property.js" %}></script>
+    <script src={% static "js/scroll-functions.js" %}></script>
+{% endblock page_scripts %}

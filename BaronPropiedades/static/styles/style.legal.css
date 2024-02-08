@@ -1,0 +1,46 @@
+.legal-container{
+    width: 90%;
+    margin: 1rem auto;
+    padding: 0.5rem;
+    box-shadow: -10px -10px 30px 0 #fff, 10px 10px 30px 0 #1d0dca17;
+    border-radius: 10px;
+}
+
+.legal-banner{
+    font-family: "Organetto-B" !important;
+    text-align: center;
+}
+
+.legal-container > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-family: "MadeTommy-R";
+}
+
+.legal-container > div > h2 {
+    width: 100%;
+    text-align: center;
+}
+
+.legal-container > div > h4 {
+    width: 90%;
+    text-align: left;
+    text-decoration: underline;
+}
+
+.legal-container > div > p {
+    width: 90%;
+    text-align: justify;
+}
+
+.legal-container > div > ul {
+    width: 90%;
+    text-align: left;
+    padding-inline-start: 5rem;
+}
+
+
+
+

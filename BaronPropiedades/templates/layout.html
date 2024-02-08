@@ -1,0 +1,102 @@
+{% load static %}
+<html lang="es">
+    <head>
+        <!-- TITTLE -->
+        <title>Barón Propiedades | {% block page_title %}{% comment %} CHILD TEMPLATE TITTLE {% endcomment %}{% endblock page_title %}</title>
+
+        <!-- META -->
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="author" content="Baron Propiedades">
+        <meta name="copyright" content="&copy; ">
+        <meta name="description" content="Baron Propiedades, Venta, Administración y Corretaje de Propiedades en la Cuarta Región. Coquimbo, Serena, Guanaqueros, Av. del Mar, Valle del Elqui. Asesoría profesional, legal y bancaria. Más de 15 años de experiencia en el rubro inmobiliario.">
+        <meta name="keywords" content="Corredores, Venta, Administración, Arriendo, Propiedades, Casas, Departamentos">
+        <meta name="geo.region" content="CL" />
+        <meta name="robots" content="index, follow" />
+        <meta name="googlebot" content="index, follow" />
+        <meta name="googlebot-news" content="noindex">
+        <meta name="distribution" content="global" />
+        <meta name="msapplication-TileColor" content="#ffffff">
+        <meta name="theme-color" content="#ffffff">
+
+        <!-- FACEBOOK OG -->
+        <meta property="og:type" content="Website" />
+        <meta property="og:title" content="Baron Propiedades, Venta, Administración, Corretajes" />
+        <meta property="og:description" content="Baron Propiedades, Venta, Administración y Corretaje de Propiedades en la Cuarta Región. Coquimbo, Serena, Guanaqueros, Av. del Mar, Valle del Elqui. Asesoría profesional, legal y bancaria. Más de 15 años de experiencia en el rubro inmobiliario." />
+        <meta property="og:image" content="{% static 'img/BannerBP-form.png' %}"/>
+        <meta property="og:image:type" content="image/png">
+        <meta property="og:locale" content="es">
+        <meta property="og:url" content="wwww.baronpropiedades.cl/inicio" />
+        <meta property="og:site_name" content="Baron Propiedades" />
+        
+        <!-- STYLES -->
+        <link rel="stylesheet" type="text/css" href={% static 'fontawesomefree/css/fontawesome.css' %} >
+        <link rel="stylesheet" type="text/css" href={% static 'fontawesomefree/css/all.min.css' %} >
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" >
+        <link rel="stylesheet" type="text/css" href={% static "styles/style.min.css" %}>
+        <link rel="stylesheet" type="text/css" href={% static "styles/style.sticky.css" %}>
+        <link rel="stylesheet" type="text/css" href={% static "styles/style.button.css" %}>
+        <link rel="stylesheet" type="text/css" href={% static "styles/style.error-handlers.css" %}>
+        {% block page_styles %}
+        {% comment %} CHILD TEMPLATE STYLES {% endcomment %}
+        {% endblock page_styles %}
+
+        <!-- FAVICON -->
+        <link rel="icon" type="img/ico" sizes="48x48" href={% static "img/favicon/favicon.ico" %}>
+        <link rel="icon" type="img/png" sizes="32x32" href={% static "img/favicon/favicon-32x32.png" %}>
+        <link rel="icon" type="img/png" sizes="16x16" href={% static "img/favicon/favicon-16x16.png" %}>
+        <link rel="apple-touch-icon" sizes="180x180" href={% static "img/favicon/apple-touch-icon.png" %}>
+        <link rel="shortcut icon" type="img/png" sizes="32x32" href={% static "img/favicon/favicon-32x32.png" %}>
+        <link rel="manifest" href={% static "img/favicon/site.webmanifest" %}>
+        <link rel="mask-icon" href={% static "img/favicon/safari-pinned-tab.svg" %} color="#ffffff">
+        <meta name="msapplication-TileColor" content="#ffffff">
+        <meta name="theme-color" content="#ffffff">
+    </head>
+    
+    <!-- PAGE BODY -->
+    <body>
+        
+        <!-- PAGE HEADER -->
+        <header class="page-header">
+            <div class="banner-container" id="banner-container">
+                <div class="baron-propiedades-banner" id="baron-propiedades-banner" onclick="location.href='/inicio'">
+                    <img alt="Logo Baron Propiedades Header" src={% static "img/BP-icon.png" %}>
+                    <h1 class="page-title">BARON PROPIEDADES</h1>
+                </div>
+            </div>
+            <div class="social-media-container">
+                <ul class="social-media-list">
+                    <li class="social-media-item"><a class="social-media-link" href="https://wa.me/+56977864052"><i class="fa-brands fa-whatsapp"></i>+56977864052</a></li>
+                    <li class="social-media-item"><a class="social-media-link" href="mailto:baronpropiedades@gmail.com"><i class="fa-solid fa-envelope"></i>baronpropiedades</a></li>
+                    <li class="social-media-item"><a class="social-media-link" href="https://www.instagram.com/baronpropiedades"><i class="fa-brands fa-instagram"></i>baronpropiedades</a></li>
+                </ul>
+            </div>
+        </header>
+        
+        <!-- PAGE CONTENT -->
+        {% block page_content %}
+        {% comment %} CHILD TEMPLATE CONTENT {% endcomment %}
+        {% endblock page_content %}
+        
+        <!-- PAGE FOOTER -->
+        <footer>
+            <div class="footer-logo">
+                <img alt="Logo Baron Propiedades Footer" src={% static "img/BP-icon.png" %}>
+                <h4>Baron propiedades</h4>
+            </div>
+            <p>Seremos la llave de tu nuevo hogar</p>
+            <div class="footer-legal">
+                <a href={% url "legal" %}>Aviso legal</a>
+                <p>| Copyright © Baron Propiedades |</p>
+                <p>Sitio por <a href="https://github.com/zebalday">@zebalday</a></p>
+            </div>
+        </footer>
+    </body>
+
+    <!-- PAGE SCRIPTS -->
+
+    {% block page_scripts %}
+    {% comment %} CHILD TEMPLATE SCRIPTS {% endcomment %}
+    {% endblock page_scripts %}
+</html>

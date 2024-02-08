@@ -1,0 +1,30 @@
+/* STICKY BANNER  */
+
+:root {
+    --rojo-baron-shadow: #592d2f;
+}
+
+.is-sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    box-shadow: 0px 10px 11px -6px var(--rojo-baron-shadow);
+    transition: all 0.5s;
+}
+
+.is-sticky {
+    animation: slideDown 0.5s ease-in-out;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+
+

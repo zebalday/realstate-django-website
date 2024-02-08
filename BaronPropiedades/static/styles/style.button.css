@@ -1,0 +1,197 @@
+/* SECTION 1 BUTTON */
+.contact-button-form {
+    margin: 10px;
+    padding: 15px 30px;
+    font-family: "Organetto-B";
+    font-size: 20px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    font-weight: 700;
+    background-size: 200% auto;
+    color: white;
+    border-radius: 10px;
+    display: block;
+    border: 0px;
+    box-shadow: 0px 0px 14px -7px #f09819;
+    text-shadow: 5px 3px 6px rgba(0, 0, 0, 0.35);
+    background-image: linear-gradient(45deg, #FF512F 0%, #f0da19 51%, #FF512F 100%);
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.contact-button-form:hover {
+    background-position: right center;
+    color: #fff;
+    text-decoration: none;
+}
+
+.contact-button-form:active {
+    transform: scale(0.95);
+}
+
+/* Define the jiggle animation */
+
+@keyframes button-jiggle-one {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(3deg);
+    }
+
+    50% {
+        transform: rotate(0deg);
+    }
+
+    75% {
+        transform: rotate(-3deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+.jiggler-one {
+    animation: button-jiggle-one 0.3s ease-in-out infinite;
+}
+
+
+/* CATALOGUE BUTTON */
+.catalogue-button-redirect {
+    padding: 5px 30px;
+    font-family: "Organetto-B";
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    font-weight: 700;
+    background-size: 200% auto;
+    color: white;
+    border-radius: 10px;
+    display: block;
+    border: 0px;
+    box-shadow: 0px 0px 14px -7px #ff2a7b8d;
+    text-shadow: 5px 3px 6px rgba(0, 0, 0, 0.35);
+    background-image: linear-gradient(45deg, #FF512F 0%, #f0da19 51%, #FF512F 100%);
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.catalogue-button-redirect:hover {
+    background-position: right center;
+    color: #fff;
+    text-decoration: none;
+}
+
+
+@keyframes button-jiggle-two {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(2deg);
+    }
+
+    50% {
+        transform: rotate(0deg);
+    }
+
+    75% {
+        transform: rotate(-2deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+.jiggler-two {
+    animation: button-jiggle-two 0.2s ease-in-out infinite;
+}
+
+
+/* CONTACT BUTTONS */
+
+.contact-items-list>a {
+    text-decoration: none;
+}
+
+.item-facebook {
+    color: var(--fb-color);
+}
+.item-facebook:hover {
+    background-color: var(--fb-color);
+    color: white;
+    border-radius: 10px;
+    padding: 0px 10px;
+}
+
+.item-instagram {
+    color: var(--insta);
+}
+.item-instagram:hover {
+    background-color: var(--insta);
+    color: white;
+    border-radius: 10px;
+    padding: 0px 10px;
+}
+
+.item-google {
+    color: var(--g-plus);
+}
+.item-google:hover {
+    background-color: var(--g-plus);
+    color: white;
+    padding: 0px 10px;
+    border-radius: 10px;
+}
+
+.item-whatsapp {
+    color: var(--whatsapp);
+}
+.item-whatsapp:hover {
+    background-color: var(--whatsapp);
+    color: white;
+    padding: 0px 10px;
+    border-radius: 10px;
+}
+
+/* Button responsiveness */
+
+@media (min-width:340px) {
+    .contact-button-form,
+    .catalogue-button-redirect {
+        font-size: 24px;
+    }
+}
+
+@media (min-width:600px) {
+
+    .contact-button-form,
+    .catalogue-button-redirect {
+        font-size: 26px;
+    }
+}
+
+@media (min-width:768px) {
+
+    .contact-button-form,
+    .catalogue-button-redirect {
+        font-size: 28px;
+    }
+}
+
+@media (min-width:1080px) {
+
+    .contact-button-form,
+    .catalogue-button-redirect {
+        font-size: 30px;
+    }
+}
