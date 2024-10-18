@@ -13,6 +13,11 @@ from django.utils.translation import gettext_lazy as _
 from pathlib import Path
 import os
 import pymysql
+import dotenv
+
+
+# Load env variables
+dotenv.load_dotenv()
 
 # MySQL Installation
 pymysql.install_as_MySQLdb()
@@ -34,11 +39,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-^3k6svug!&-p!mzmt*%^jv-drb8$u3o6r(4q@^e#@st4o(f5mg'
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-ALLOWED_HOSTS = ["https://baronpropiedades.cl","baronpropiedades.cl"]
+ALLOWED_HOSTS = ["*"]
+#ALLOWED_HOSTS = ["https://baronpropiedades.cl","baronpropiedades.cl"]
 
 # Application definition
 INSTALLED_APPS = [
@@ -101,12 +107,16 @@ DATABASES = {
     }
 }
 
+DB_NAME = os.getenv('DB_NAME')
+DB_USER = os.getenv('DB_USER')
+DB_PASSWORD = os.getenv('DB_PASSWORD')
+
 """ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME':'cba98259_BPWebsite_db',
-        'USER':'cba98259_admin',
-        'PASSWORD':'----',
+        'NAME': DB_NAME,
+        'USER': DB_USER,
+        'PASSWORD': DB_PASSWORD,
         'HOST':'localhost',
         'PORT':'3306'
     }
@@ -114,13 +124,13 @@ DATABASES = {
 
 # Mail sending information
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'mail.baronpropiedades.cl'
+EMAIL_HOST = os.getenv('EMAIL_HOST')
 EMAIL_USE_TLS = False
 EMAIL_USE_SSL = False
 EMAIL_PORT = 587
-EMAIL_HOST_USER = "no-reply@baronpropiedades.cl"
-DEFAULT_FROM_EMAIL = "no-reply@baronpropiedades.cl"
-EMAIL_HOST_PASSWORD = "----"
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
+DEFAULT_FROM_EMAIL = os.getenv('DEFAULT_FROM_EMAIL')
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -144,7 +154,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-es'
+LANGUAGE_CODE = 'es'
 
 TIME_ZONE = 'America/Santiago'
 
@@ -167,11 +177,13 @@ else:
     STATIC_URL = '/staticfiles/'
 
 
-""" STATIC_ROOT='/home/cba98259/public_html/static'
+""" 
+STATIC_ROOT = os.getenv('STATIC_ROOT')
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
-MEDIA_ROOT='/home/cba98259/public_html/media'
-MEDIA_URL='/media/' """
+MEDIA_ROOT = os.getenv('MEDIA_ROOT')
+MEDIA_URL='/media/' 
+"""
 
 
 # Default primary key field type

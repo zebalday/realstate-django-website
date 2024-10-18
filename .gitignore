@@ -4,3 +4,8 @@ media/property2
 media/property3
 media/property4
 db.sqlite3
+BaronPropieadesWebsite/.env
+BaronPropieadesWebsite/__pycache__
+BaronPropiedades/__pycache__
+BaronPropiedades/migrations
+venv

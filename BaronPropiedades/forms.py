@@ -61,7 +61,7 @@ class ImageForm(forms.ModelForm):
             "is_thumbnail"
         ]
         widgets = {
-            "image": forms.ClearableFileInput(attrs={"multiple":True})
+            "image": forms.ClearableFileInput(attrs={"multiple":False})
         }
         labels = {
             "image":"Imágenes"
